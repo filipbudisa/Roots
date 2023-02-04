@@ -10,9 +10,11 @@ public class Inventory : MonoBehaviour
     }
     public void AddItem(Item item) {
         Items.Add(item);
+        UpdateInventoryUI();
     }
     public void RemoveItem(Item item) {
         Items.Remove(item);
+        UpdateInventoryUI();
     }
 
     private HashSet<int> TapeIndexList;
@@ -21,9 +23,11 @@ public class Inventory : MonoBehaviour
     }
     public void AddTape(int index) {
         TapeIndexList.Add(index);
+        UpdateInventoryUI();
     }
     public void RemoveTape(int index) {
         TapeIndexList.Remove(index);
+        UpdateInventoryUI();
     }
 
     private HashSet<int> DiaryIndexList;
@@ -32,9 +36,11 @@ public class Inventory : MonoBehaviour
     }
     public void AddDiary(int index) {
         DiaryIndexList.Add(index);
+        UpdateInventoryUI();
     }
     public void RemoveDiary(int index) {
         DiaryIndexList.Remove(index);
+        UpdateInventoryUI();
     }
 
     // Start is called before the first frame update
@@ -47,5 +53,9 @@ public class Inventory : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void UpdateInventoryUI() {
+        // TODO: create inventory UI
     }
 }

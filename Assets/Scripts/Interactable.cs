@@ -12,13 +12,13 @@ public class Interactable : MonoBehaviour
     void OnMouseEnter()
     {
         Debug.Log("OnMouseEnter");
-        Cursor.SetCursor(hoverTexture, Vector2.zero, cursorMode);
+        Cursor.SetCursor(hoverTexture, hotSpot, cursorMode);
     }
 
     void OnMouseExit()
     {
         Debug.Log("OnMouseExit");
-        Cursor.SetCursor(pointerTexture, Vector2.zero, cursorMode);
+        Cursor.SetCursor(pointerTexture, hotSpot, cursorMode);
     }
     
     // Start is called before the first frame update

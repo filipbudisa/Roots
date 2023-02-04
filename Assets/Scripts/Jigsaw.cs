@@ -50,15 +50,14 @@ public class Jigsaw : MonoBehaviour {
   void Start() {
     pieces = new List<Transform>();
     CreateGamePieces();
+    shuffling = true;
+    StartCoroutine(WaitShuffle(0.5f));
   }
 
   // Update is called once per frame
   void Update() {
     // Check for completion.
-    if (!shuffling && CheckCompletion()) {
-      shuffling = true;
-      StartCoroutine(WaitShuffle(0.5f));
-    }
+    
 
     // On click send out ray to see if we click a piece.
     if (Input.GetMouseButtonDown(0)) {
@@ -74,6 +73,9 @@ public class Jigsaw : MonoBehaviour {
             if (SwapIfValid(i, -1, 0)) { break; }
             if (SwapIfValid(i, +1, size - 1)) { break; }
           }
+        }
+        if(CheckCompletion()){
+            Debug.Log("Finished");
         }
       }
     }
@@ -94,7 +96,7 @@ public class Jigsaw : MonoBehaviour {
   }
 
   // We name the pieces in order so we can use this to check completion.
-  private bool CheckCompletion() {
+  public bool CheckCompletion() {
     for (int i = 0; i < pieces.Count; i++) {
       if (pieces[i].name != $"{i}") {
         return false;

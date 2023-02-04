@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private List<Item> Items;
+    private HashSet<Item> Items;
     public bool HasItem(Item item) {
         return Items.Contains(item);
     }
@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
         Items.Remove(item);
     }
 
-    private List<int> TapeIndexList;
+    private HashSet<int> TapeIndexList;
     public bool HasTape(int index) {
         return TapeIndexList.Contains(index);
     }
@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour
         TapeIndexList.Remove(index);
     }
 
-    private List<int> DiaryIndexList;
+    private HashSet<int> DiaryIndexList;
     public bool HasDiary(int index) {
         return DiaryIndexList.Contains(index);
     }

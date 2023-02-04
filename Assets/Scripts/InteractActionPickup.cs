@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// TODO: create real Item enum
 public enum Item {
     testItem,
     testItem2
@@ -9,13 +11,12 @@ public enum Item {
 
 public class InteractActionPickup : InteractAction
 {
-    // TODO: create real Item enum
-    public Item Item;
+    public Item item;
     
     protected override void Action()
     {
         // TODO: add item to inventory
-        // player.Inventory.AddItem()
+        // player.Inventory.AddItem(item)
         throw new System.NotImplementedException();
     }
 

@@ -4,15 +4,19 @@ using UnityEngine;
 
 public abstract class InteractAction : MonoBehaviour {
 
-    protected abstract bool oneTime { get; set; }
+    public bool oneTime;
     private bool used = false;
 
     public void Interact(){
-        if (oneTime && !used){
-            used = true;
-            Action();
-        }
-        else if (!used) Action();
+        bool oneTimeUse = oneTime || IsOneTimeUse();
+        if (oneTimeUse && used) return;
+
+        used = true;
+        Action();
+    }
+
+    protected virtual bool IsOneTimeUse() {
+        return false;
     }
 
     protected abstract void Action();

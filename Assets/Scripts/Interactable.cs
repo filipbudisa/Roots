@@ -46,6 +46,6 @@ public class Interactable : MonoBehaviour
 
         // TODO: Do this
         //var player = GameObject.Find("Player");
-        //playerPrefab.interact(this);
+        //player.interact(this);
     }
 }

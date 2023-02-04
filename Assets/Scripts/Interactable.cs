@@ -5,8 +5,8 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     // Change cursor on hover
-    public Texture2D pointerTexture;
-    public Texture2D hoverTexture;
+    private Texture2D pointerTexture;
+    private Texture2D hoverTexture;
     private CursorMode cursorMode = CursorMode.Auto;
     private Vector2 hotSpot = Vector2.zero;
     void OnMouseEnter()
@@ -25,6 +25,8 @@ public class Interactable : MonoBehaviour
     void Start()
     {
         Debug.Log("Start");
+        pointerTexture = Resources.Load<Texture2D>("cursor-pointer");
+        hoverTexture = Resources.Load<Texture2D>("cursor-hover");
     }
 
     // Update is called once per frame
@@ -39,11 +41,11 @@ public class Interactable : MonoBehaviour
     }
 
     // When mouse is released over element
-    void OnMouseUp() {
-        Debug.Log("OnMouseUp");
+    void OnMouseUpAsButton() {
+        Debug.Log("OnMouseUpAsButton");
 
         // TODO: Do this
-        //var playerPrefab = Instantiate(Resources.Load("Player"));
+        //var player = GameObject.Find("Player");
         //playerPrefab.interact(this);
     }
 }

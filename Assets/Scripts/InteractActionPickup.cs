@@ -2,13 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-// TODO: create real Item enum
-public enum Item {
-    testItem,
-    testItem2
-}
-
 public class InteractActionPickup : InteractAction
 {
     public Item item;

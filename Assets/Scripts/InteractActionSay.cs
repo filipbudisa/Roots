@@ -12,7 +12,7 @@ public class InteractActionSay : InteractAction
 
     protected override void Action()
     {
-        monologueSystem.Say(new MonologueItem(text, picture));
+        monologueSystem.Say(new MonologueItem(text, title, picture));
     }
 
     private void Awake() {

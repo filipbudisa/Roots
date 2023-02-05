@@ -6,7 +6,7 @@ public class InteractActionPickup : InteractAction
 {
     public Item item;
     private Inventory inventory;
-    
+
     protected override void Action()
     {
         inventory.AddItem(item);
@@ -19,17 +19,10 @@ public class InteractActionPickup : InteractAction
     void Awake() {
         var master = GameObject.Find("Master");
         inventory = master.GetComponent<Inventory>();
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (inventory.HasItem(item))
+        {
+            Destroy(gameObject);
+        }
     }
 }

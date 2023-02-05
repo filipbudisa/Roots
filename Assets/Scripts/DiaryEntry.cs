@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Image = UnityEngine.UI.Image;
 
 public class DiaryEntry : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class DiaryEntry : MonoBehaviour
     private GameObject uiExpoDiary;
     private TextMeshProUGUI uiExpoDiaryTitle;
     private TextMeshProUGUI uiExpoDiaryDesc;
+    private Image image;
 
     public void Click() {
         uiExpoDiaryTitle.SetText(MonologueSets.ExpoDiaryDic[expoDiaryKey].title);
@@ -20,6 +22,13 @@ public class DiaryEntry : MonoBehaviour
         uiExpoDiary = GameObject.Find("ExpoDiary");
         uiExpoDiaryTitle = uiExpoDiary.transform.Find("TitleText").GetComponent<TextMeshProUGUI>();
         uiExpoDiaryDesc = uiExpoDiary.transform.Find("DescText").GetComponent<TextMeshProUGUI>();
+
+        image = gameObject.transform.Find("Image").GetComponent<Image>();
+        if (MonologueSets.ExpoDiaryDic[expoDiaryKey].picture != null) {
+            var path = "Items/" + MonologueSets.ExpoDiaryDic[expoDiaryKey].picture;
+            Texture2D tex = Resources.Load<Texture2D>(path);
+            image.sprite = Sprite.Create(tex, new Rect(0, 0, 20, 20), new Vector2(0.5f, 0.5f));
+        }
     }
 
     public void Show() {

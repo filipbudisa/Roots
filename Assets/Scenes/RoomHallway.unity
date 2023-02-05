@@ -840,11 +840,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 566878266}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9da5acf4d324268ccb33dfb312181cb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 133f9edcf4543c985be0f9189b5e8746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   oneTime: 0
-  monologueKey: 1
+  puzzle: {fileID: 0}
 --- !u!1 &572775048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,6 +2117,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361055383}
   m_CullTransparentMesh: 1
+  puzzlesCompleted: 00000000
 --- !u!1 &1364479113
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,7 +2129,7 @@ GameObject:
   - component: {fileID: 1364479114}
   - component: {fileID: 1364479117}
   - component: {fileID: 1364479116}
-  - component: {fileID: 1364479115}
+  - component: {fileID: 1364479118}
   m_Layer: 0
   m_Name: DoorLiving
   m_TagString: Untagged
@@ -2151,20 +2152,6 @@ Transform:
   m_Father: {fileID: 296249995}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1364479115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364479113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9da5acf4d324268ccb33dfb312181cb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oneTime: 0
-  monologueKey: 0
 --- !u!114 &1364479116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2208,6 +2195,20 @@ PolygonCollider2D:
       - {x: -0.46846372, y: -0.54918593}
       - {x: 0.4684641, y: -0.762103}
       - {x: 0.42073882, y: 0.09609994}
+--- !u!114 &1364479118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364479113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c7c304164b28f8bb2a7fb0bd2f7a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oneTime: 0
+  nextScene: SampleScene
 --- !u!1 &1494947127
 GameObject:
   m_ObjectHideFlags: 0
@@ -2298,7 +2299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1494947127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2650,7 +2651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766460142}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.656, y: 9.4, z: 10}
+  m_LocalPosition: {x: 9.656, y: 9.4, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -11,14 +11,26 @@ public struct ItemDesc {
 
 public enum Item {
     Matches,
-    Torch
+    Newspaper,
+    PhotoFragment1,
+    PhotoFragment2,
+    PhotoFragment3,
+    Recorder,
+    DischargeLetter,
+    Coin
 }
 
 public static class InventoryItems
 {
     public static Dictionary<Item, ItemDesc> ItemDictionary = new Dictionary<Item, ItemDesc>(){
         { Item.Matches, new ItemDesc("Matches", "test.png") },
-        { Item.Torch, new ItemDesc("Torch", "test.png") }
+        { Item.Newspaper, new ItemDesc("Newspapers", "Novine") },
+        { Item.PhotoFragment1, new ItemDesc("Photo fragment", "PhotoFragment") },
+        { Item.PhotoFragment2, new ItemDesc("Photo fragment", "PhotoFragment") },
+        { Item.PhotoFragment3, new ItemDesc("Photo fragment", "PhotoFragment") },
+        { Item.Recorder, new ItemDesc("Recorder", "Recorder") },
+        { Item.DischargeLetter, new ItemDesc("Discharge letter", "Discharge") },
+        { Item.Coin, new ItemDesc("Sobriety coin", "Coin") },
     };
 
 }

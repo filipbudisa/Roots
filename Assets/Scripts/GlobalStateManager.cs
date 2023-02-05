@@ -16,5 +16,7 @@ public class GlobalStateManager : MonoBehaviour
         }
     }
 
+    public bool[] puzzlesCompleted = {false, false, false, false};
 
+    public bool waterRunning { get; set; } = true;
 }

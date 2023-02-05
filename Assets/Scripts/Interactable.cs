@@ -1,51 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    // Change cursor on hover
-    private Texture2D pointerTexture;
-    private Texture2D hoverTexture;
-    private CursorMode cursorMode = CursorMode.Auto;
-    private Vector2 hotSpot = Vector2.zero;
+    private CursorControl cursor;
+
+    private void Awake()
+    {
+        var master = GameObject.Find("Master");
+        cursor = master.GetComponent<CursorControl>();
+    }
+
     void OnMouseEnter()
     {
-        Debug.Log("OnMouseEnter");
-        Cursor.SetCursor(hoverTexture, hotSpot, cursorMode);
+        cursor.setHover(true);
     }
 
     void OnMouseExit()
     {
-        Debug.Log("OnMouseExit");
-        Cursor.SetCursor(pointerTexture, hotSpot, cursorMode);
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log("Start");
-        pointerTexture = Resources.Load<Texture2D>("cursor-pointer");
-        hoverTexture = Resources.Load<Texture2D>("cursor-hover");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    // When mouse hovers over element
-    void OnMouseOver() {
-        //Debug.Log("OnMouseOver");
+        cursor.setHover(false);
     }
 
     // When mouse is released over element
     void OnMouseUpAsButton() {
-        Debug.Log("OnMouseUpAsButton");
+        var player = GameObject.Find("Player");
+        player.GetComponent<Player>().interact(this);
+    }
 
-        // TODO: Do this
-        //var player = GameObject.Find("Player");
-        //player.interact(this);
+    public void Interact()
+    {
+        var actions = GetComponents<InteractAction>();
+        foreach (var action in actions)
+        {
+            action.Interact();
+        }
     }
 }

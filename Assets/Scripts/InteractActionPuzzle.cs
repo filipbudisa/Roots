@@ -12,7 +12,7 @@ public enum PuzzleKey{
 
 public class InteractActionPuzzle : InteractAction
 {
-    PuzzleKey puzzleType;
+    [SerializeField] private PuzzleKey puzzleType;
     //Drag and drop a game here 
     [SerializeField] private GameObject puzzle;
 

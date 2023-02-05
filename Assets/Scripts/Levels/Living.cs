@@ -17,6 +17,9 @@ public class Living : MonoBehaviour
 
             var doorCellar = GameObject.Find("DoorCellar");
             Destroy(doorCellar);
+            
+            var diary = GameObject.Find("DiaryEntry");
+            Destroy(diary);
         }
     }
 }

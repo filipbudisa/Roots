@@ -14,12 +14,8 @@ public class Player : MonoBehaviour
     private Vector2 destination = new Vector2(-1, -1);
     private const float Speed = 0.6f;
     private const float MinDistance = 0.01f;
-    
-    // TODO: Use real interactable 
-    public class Interactable : MonoBehaviour
-    {
-        void interact(){}
-    }
+
+    private Interactable movingTo = null;
 
     private void Awake()
     {
@@ -49,17 +45,34 @@ public class Player : MonoBehaviour
         if (distance < MinDistance)
         {
             stopMove();
+
+            if (movingTo)
+            {
+                movingTo.Interact();
+                movingTo = null;
+            }
+            
             return;
         }
 
         var move = direction * dt * Speed;
-        if (distance < move.magnitude)
+        bool arrived = distance < move.magnitude;
+        if (arrived)
         {
-            move *= distance / move.magnitude;
+            gameObject.transform.parent.position = destination;
+            
             stopMove();
+            
+            if (movingTo)
+            {
+                movingTo.Interact();
+                movingTo = null;
+            }
         }
-        
-        gameObject.transform.parent.position = gameObject.transform.parent.position + (Vector3) move;   
+        else
+        {
+            gameObject.transform.parent.position = gameObject.transform.parent.position + (Vector3) move;   
+        }
     }
 
     public void interact(Interactable obj)
@@ -67,11 +80,25 @@ public class Player : MonoBehaviour
         var pos = level.closestMovable(obj.gameObject.transform.position);
         if (pos.x == -1) return;
         moveTo(pos);
+        if (!moving)
+        {
+            if (movingTo)
+            {
+                movingTo.Interact();
+            }
+
+            movingTo = null;
+        }
+        else
+        {
+            movingTo = obj;   
+        }
     }
 
     public void moveTo(Vector2 point)
     {
         if (!level.canMove(point)) return;
+        movingTo = null;
 
         origin = gameObject.transform.parent.position;
         destination = point;

@@ -10,29 +10,13 @@ using UnityEngine.UIElements;
 public class Level : MonoBehaviour
 {
     public Texture2D movable;
+    private Player player = null;
+
+    public void setPlayer(Player player)
+    {
+        this.player = player;
+    }
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    bool canMove(Point point)
-    {
-        return false;
-    }
-
-    private void OnMouseOver()
-    {
-        
-    }
-
     private void OnMouseUpAsButton()
     {
         // TODO: find player and call moveTo

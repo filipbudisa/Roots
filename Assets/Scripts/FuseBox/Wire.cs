@@ -11,7 +11,7 @@ public class Wire : MonoBehaviour
     private Vector3 startPoint;
     private Vector3 startPosition;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         startPoint = transform.parent.position;
         startPosition = transform.position;

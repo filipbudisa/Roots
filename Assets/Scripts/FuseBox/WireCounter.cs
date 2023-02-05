@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WireCounter : MonoBehaviour
 {
-    private int maxWires = 5;
+    private int maxWires = 3;
     private int wiresConnected = 0;
     
     public void IncrementWire(){

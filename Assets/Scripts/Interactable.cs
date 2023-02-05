@@ -24,7 +24,11 @@ public class Interactable : MonoBehaviour
     }
 
     // When mouse is released over element
-    void OnMouseUpAsButton() {
+    void OnMouseUpAsButton()
+    {
+        var monolog = GameObject.Find("Monolog");
+        if(monolog && monolog.activeInHierarchy) return;
+        
         var player = GameObject.Find("Player");
         player.GetComponent<Player>().interact(this);
     }

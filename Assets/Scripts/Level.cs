@@ -19,6 +19,9 @@ public class Level : MonoBehaviour
     
     private void OnMouseUpAsButton()
     {
+        var monolog = GameObject.Find("Monolog");
+        if (monolog && monolog.activeInHierarchy) return;
+        
         var wPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (player && canMove(wPoint))
         {

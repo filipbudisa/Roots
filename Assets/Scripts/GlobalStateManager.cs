@@ -16,5 +16,5 @@ public class GlobalStateManager : MonoBehaviour
         }
     }
 
-
+    public bool waterRunning { get; set; } = true;
 }

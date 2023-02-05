@@ -13,7 +13,8 @@ public struct MonologueItem {
 
 public enum MonologueKey {
     None,
-    Sample
+    Sample,
+    FoundPhoto
 }
 
 public static class MonologueSets
@@ -22,6 +23,10 @@ public static class MonologueSets
         { MonologueKey.Sample, new List<MonologueItem>() {
             new MonologueItem("It's no power.", "Fuse box"),
             new MonologueItem("Too bad...")
+        }},
+        { MonologueKey.FoundPhoto, new List<MonologueItem>() {
+            new MonologueItem("A piece of what was once a photography of a happy family.", "Photo fragment", "PhotoFragment"),
+            new MonologueItem("Looks like it's been ripped into pieces.")
         }},
     };
 }

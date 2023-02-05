@@ -11,19 +11,25 @@ public struct MonologueItem {
 
 public enum MonologueKey {
     Monologue1,
-    Monologue2
+    Monologue2,
+    Sample,
+    None
 }
 
 public static class MonologueSets
 {
-    public static Dictionary<MonologueKey, HashSet<MonologueItem>> MonologueDic = new Dictionary<MonologueKey, HashSet<MonologueItem>>() {
-        { MonologueKey.Monologue1, new HashSet<MonologueItem>() {
+    public static Dictionary<MonologueKey, List<MonologueItem>> MonologueDic = new Dictionary<MonologueKey, List<MonologueItem>>() {
+        { MonologueKey.Monologue1, new List<MonologueItem>() {
             new MonologueItem("Test speech 1 - Screen 1"),
             new MonologueItem("Test speech 1 - Screen 2")
         }},
-        { MonologueKey.Monologue2, new HashSet<MonologueItem>() {
+        { MonologueKey.Monologue2, new List<MonologueItem>() {
             new MonologueItem("Test speech 2 - Screen 1"),
             new MonologueItem("Test speech 2 - Screen 2")
+        }},
+        { MonologueKey.Sample, new List<MonologueItem>() {
+            new MonologueItem("It's no power."),
+            new MonologueItem("Too bad...")
         }}
     };
 }

@@ -15,9 +15,11 @@ public class WireCounter : MonoBehaviour
     }
 
     private void Done(){
-        Debug.Log("connected");
         var master = GameObject.Find("Master");
+        master.GetComponent<GlobalStateManager>().puzzleOpen = false;
+        Debug.Log("connected");
         master.GetComponent<GlobalStateManager>().puzzlesCompleted[(int)PuzzleKey.FuseBox] = true;
+        master.GetComponent<SceneSwitcher>().ChangeScene("RoomHallwayLight");
         Destroy(this.gameObject);
     }
 }

@@ -16,6 +16,14 @@ public class GlobalStateManager : MonoBehaviour
         }
     }
 
+    public bool uiOpen(){
+        var monolog = GameObject.Find("Monolog");
+        return puzzleOpen || (monolog && monolog.activeInHierarchy);
+
+    }
+
+    public bool puzzleOpen { get; set; } = false;
+
     public bool[] puzzlesCompleted = {false, false, false, false};
 
 }

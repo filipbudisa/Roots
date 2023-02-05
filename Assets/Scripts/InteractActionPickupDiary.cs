@@ -10,7 +10,6 @@ public class InteractActionPickupDiary : InteractAction
     protected override void Action()
     {
         inventory.AddDiary(index);
-        throw new System.NotImplementedException();
     }
 
     protected override bool IsOneTimeUse() {

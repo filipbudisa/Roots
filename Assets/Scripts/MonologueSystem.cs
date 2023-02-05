@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MonologueSystem : MonoBehaviour
 {
-    public void Say(MonologueKey monologueKey) {
+    public void Speak(MonologueKey monologueKey) {
         foreach (var monologueItem in MonologueSets.MonologueDic[monologueKey])
         {
             // TODO: create speech box UI
-            //Speak(monologueItem.text, monologueItem.picture);
+            //Say(monologueItem.text, monologueItem.picture);
         }
     }
 

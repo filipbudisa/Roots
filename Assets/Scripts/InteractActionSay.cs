@@ -9,7 +9,7 @@ public class InteractActionSay : InteractAction
 
     protected override void Action()
     {
-        monologueSystem.Say(monologueKey);
+        monologueSystem.Speak(monologueKey);
     }
 
     private void Awake() {

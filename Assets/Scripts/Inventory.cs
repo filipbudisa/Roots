@@ -12,6 +12,9 @@ public class Inventory : MonoBehaviour
     private GameObject uiExpoDiary;
     private TextMeshProUGUI uiExpoDiaryTitle;
     private TextMeshProUGUI uiExpoDiaryDesc;
+    private GameObject uiExpoTapes;
+    private TextMeshProUGUI uiExpoTapesTitle;
+    private TextMeshProUGUI uiExpoTapesDesc;
 
     private CursorControl cursor;
     private List<Item> Items = new List<Item>();
@@ -27,16 +30,16 @@ public class Inventory : MonoBehaviour
         UpdateInventoryUI();
     }
 
-    private List<int> TapeIndexList = new List<int>();
-    public bool HasTape(int index) {
-        return TapeIndexList.Contains(index);
+    private List<ExpoTapeKey> TapesKeyList = new List<ExpoTapeKey>();
+    public bool HasTape(ExpoTapeKey tapeKey) {
+        return TapesKeyList.Contains(tapeKey);
     }
-    public void AddTape(int index) {
-        TapeIndexList.Add(index);
+    public void AddTape(ExpoTapeKey tapeKey) {
+        TapesKeyList.Add(tapeKey);
         UpdateInventoryUI();
     }
-    public void RemoveTape(int index) {
-        TapeIndexList.Remove(index);
+    public void RemoveTape(ExpoTapeKey tapeKey) {
+        TapesKeyList.Remove(tapeKey);
         UpdateInventoryUI();
     }
 
@@ -62,10 +65,16 @@ public class Inventory : MonoBehaviour
         uiExpoDiaryTitle = uiExpoDiary.transform.Find("TitleText").GetComponent<TextMeshProUGUI>();
         uiExpoDiaryDesc = uiExpoDiary.transform.Find("DescText").GetComponent<TextMeshProUGUI>();
         HideExpoDiary();
+        uiExpoTapes = GameObject.Find("ExpoTapes");
+        uiExpoTapesTitle = uiExpoTapes.transform.Find("TitleText").GetComponent<TextMeshProUGUI>();
+        uiExpoTapesDesc = uiExpoTapes.transform.Find("DescText").GetComponent<TextMeshProUGUI>();
+        HideExpoTapes();
 
         // TODO: REMOVE (ONLY FOR TEST)
         AddDiary(ExpoDiaryKey.Entry3);
         AddDiary(ExpoDiaryKey.Entry5);
+        AddTape(ExpoTapeKey.Tape2);
+        AddTape(ExpoTapeKey.Tape3);
     }
 
     // Start is called before the first frame update
@@ -97,6 +106,12 @@ public class Inventory : MonoBehaviour
             ShowExpoDiary();
         }
     }
+    public void UiTapesBtnClick() {
+        if(uiTopLayer.activeSelf == true) {
+            HideTopLayer();
+            ShowExpoTapes();
+        }
+    }
 
     private void HideTopLayer() {
         uiTopLayer.SetActive(false);
@@ -116,5 +131,19 @@ public class Inventory : MonoBehaviour
             diaryEntry.gameObject.SetActive(HasDiary(diaryEntry.expoDiaryKey));
         }
         uiExpoDiary.SetActive(true);
+    }
+    private void HideExpoTapes() {
+        uiExpoTapesDesc.SetText("");
+        uiExpoTapesTitle.SetText("");
+        uiExpoTapes.SetActive(false);
+    }
+    private void ShowExpoTapes() {
+        TapeEntry[] TapesEntries = uiExpoTapes.transform.GetComponentsInChildren<TapeEntry>();
+        foreach (var TapesEntry in TapesEntries)
+        {
+            TapesEntry.gameObject.SetActive(true);
+            //TapesEntry.gameObject.SetActive(HasTape(TapesEntry.expoTapeKey));
+        }
+        uiExpoTapes.SetActive(true);
     }
 }

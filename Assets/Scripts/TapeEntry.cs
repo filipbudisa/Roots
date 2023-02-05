@@ -19,11 +19,11 @@ public class TapeEntry : MonoBehaviour
     }
 
     private void Awake() {
-        uiExpoTape = GameObject.Find("ExpoTape");
+        uiExpoTape = GameObject.Find("ExpoTapes");
         uiExpoTapeTitle = uiExpoTape.transform.Find("TitleText").GetComponent<TextMeshProUGUI>();
         uiExpoTapeDesc = uiExpoTape.transform.Find("DescText").GetComponent<TextMeshProUGUI>();
 
-        image = gameObject.transform.Find("Image").GetComponent<Image>();
+        image = image = GetComponent<Image>();
         if (MonologueSets.ExpoTapeDic[expoTapeKey].picture != null) {
             var path = "Items/" + MonologueSets.ExpoTapeDic[expoTapeKey].picture;
             Texture2D tex = Resources.Load<Texture2D>(path);

@@ -23,7 +23,7 @@ public class DiaryEntry : MonoBehaviour
         uiExpoDiaryTitle = uiExpoDiary.transform.Find("TitleText").GetComponent<TextMeshProUGUI>();
         uiExpoDiaryDesc = uiExpoDiary.transform.Find("DescText").GetComponent<TextMeshProUGUI>();
 
-        image = gameObject.transform.Find("Image").GetComponent<Image>();
+        image = GetComponent<Image>();
         if (MonologueSets.ExpoDiaryDic[expoDiaryKey].picture != null) {
             var path = "Items/" + MonologueSets.ExpoDiaryDic[expoDiaryKey].picture;
             Texture2D tex = Resources.Load<Texture2D>(path);

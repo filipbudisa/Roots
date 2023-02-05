@@ -12,6 +12,7 @@ public class MonologueSystem : MonoBehaviour
     private GameObject ui;
     private Image image;
     private TextMeshProUGUI text;
+    private TextMeshProUGUI title;
 
     private bool active = false;
     private int lineIndex = 0;
@@ -22,12 +23,20 @@ public class MonologueSystem : MonoBehaviour
         ui = GameObject.Find("Monolog");
         image = ui.transform.Find("Image").GetComponent<Image>();
         text = ui.transform.Find("Text").GetComponent<TextMeshProUGUI>();
+        title = ui.transform.Find("Title").GetComponent<TextMeshProUGUI>();
         Hide();
     }
 
     public void Click()
     {
         if (!active) return;
+        if (currentMonolog == MonologueKey.None)
+        {
+            active = false;
+            Hide();
+            return;
+        }
+        
         var lines = MonologueSets.MonologueDic[currentMonolog];
         if (++lineIndex >= lines.Count)
         {
@@ -48,9 +57,18 @@ public class MonologueSystem : MonoBehaviour
         active = true;
     }
 
+    public void Say(MonologueItem item)
+    {
+        Show();
+        currentMonolog = MonologueKey.None;
+        SayLine(item);
+        active = true;
+    }
+
     private void SayLine(MonologueItem item)
     {
         text.text = item.text;
+        title.text = string.IsNullOrEmpty(item.title) ? "Petar" : item.title;
 
         var path = "Items/" + (string.IsNullOrEmpty(item.picture) ? "Petar" : item.picture);
         Texture2D tex = Resources.Load<Texture2D>(path);

@@ -141,9 +141,16 @@ public class Inventory : MonoBehaviour
         TapeEntry[] TapesEntries = uiExpoTapes.transform.GetComponentsInChildren<TapeEntry>();
         foreach (var TapesEntry in TapesEntries)
         {
-            TapesEntry.gameObject.SetActive(true);
-            //TapesEntry.gameObject.SetActive(HasTape(TapesEntry.expoTapeKey));
+            TapesEntry.gameObject.SetActive(HasTape(TapesEntry.expoTapeKey));
         }
         uiExpoTapes.SetActive(true);
+    }
+
+    public void HideAllWindows() {
+        HideExpoDiary();
+        HideExpoTapes();
+        ShowTopLayer();
+        // TODO
+        //HideInventory();
     }
 }

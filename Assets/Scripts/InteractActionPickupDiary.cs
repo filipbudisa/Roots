@@ -20,7 +20,7 @@ public class InteractActionPickupDiary : InteractAction
         var master = GameObject.Find("Master");
         inventory = master.GetComponent<Inventory>();
         
-        if (inventory.HasDiary(index))
+        if (inventory.HasDiary(entryKey))
         {
             Destroy(gameObject);
         }

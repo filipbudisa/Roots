@@ -172,7 +172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &305438820
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1172,7 +1172,6 @@ GameObject:
   - component: {fileID: 2132723061}
   - component: {fileID: 2132723063}
   - component: {fileID: 2132723062}
-  - component: {fileID: 2132723064}
   - component: {fileID: 2132723065}
   m_Layer: 5
   m_Name: ClickArea
@@ -1239,18 +1238,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132723060}
   m_CullTransparentMesh: 1
---- !u!114 &2132723064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2132723060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f43e7e58997916fc79fe20c7fac54974, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2132723065
 MonoBehaviour:
   m_ObjectHideFlags: 0

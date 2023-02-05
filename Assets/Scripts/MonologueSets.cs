@@ -24,6 +24,14 @@ public enum ExpoDiaryKey {
     Entry5
 }
 
+public enum ExpoTapeKey {
+    Tape1,
+    Tape2,
+    Tape3,
+    Tape4,
+    Tape5
+}
+
 
 public static class MonologueSets
 {
@@ -58,6 +66,34 @@ public static class MonologueSets
         { ExpoDiaryKey.Entry5, new MonologueItem(
             "Roses are red\nHer favorite hue\nI hold her in my hand\nWithout her I'm blue\nThe fields of green\nThat I have seen\nHave a reflection of yellow\nI stroke her hair\nWhile she eats a marshmallow\n\nPS: I know red isn't her favorite color, but pink is hard to rhyme with.",
             "Entry #5",
+            null
+        )},
+    };
+
+    public static Dictionary<ExpoTapeKey, MonologueItem> ExpoTapeDic = new Dictionary<ExpoTapeKey, MonologueItem>() {
+        { ExpoTapeKey.Tape1, new MonologueItem(
+            "It's all her fault. If she had just kept an eye on our daughter, this wouldn't have happened. But no, she had to go take care of the baby. It's always the baby. Always! And now my little girl is gone. Gone! And they expect me to just accept it, to just move on. How the hell am I supposed to do that?",
+            "Tape #4",
+            null
+        )},
+        { ExpoTapeKey.Tape2, new MonologueItem(
+            "The abuse still haunts me. I never wanted to be like him, but now I fear I've become the monster that hurt me. Stuck in this cycle of repeating the same mistakes. At least I'm not beating them like he used to beat me.",
+            "Tape #9",
+            null
+        )},
+        { ExpoTapeKey.Tape3, new MonologueItem(
+            "She's been acting so strange lately, talking about playing with our little girl. It's like she's still here, but that can't be. I don't know what to believe anymore. Is she losing her mind? Or am I imagining things in my grief and guilt? I just don't know how to make sense of it all.",
+            "Tape #22",
+            null
+        )},
+        { ExpoTapeKey.Tape4, new MonologueItem(
+            "It's too much, I can't handle it anymore! She's getting crazier by the day and it's driving me mad. And worst of all, she's acting like everything's great, trying to convince me I'm the one that's having delusions, that it's the alcohol that is making me imagine things.\nJust yesterday I saw her talking to herself, it's clear she's the one that's lost touch with reality. But when I try to bring it up, she just laughs it off, says I'm the one that needs help.\nThat's it, I'm getting her institutionalized. I just can't handle her.",
+            "Tape #28",
+            null
+        )},
+        { ExpoTapeKey.Tape5, new MonologueItem(
+            "She came back from the hospital, I thought it was all gonna be okay, but nope. What kinda crazy person smashes a table with a baby on it? Tried to stop her, but she got away with Petar. Who knows where that nutcase went...\nLost everyone, can't fix it.\nGonna find solace in the booze bunker. It's my escape these days.",
+            "Tape #42",
             null
         )},
     };

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class InteractActionPickupTape : InteractAction
 {
-    public int index;
+    public ExpoTapeKey tapeKey;
     private Inventory inventory;
     
     protected override void Action()
     {
-        inventory.AddTape(index);
+        inventory.AddTape(tapeKey);
     }
 
     protected override bool IsOneTimeUse() {
@@ -20,7 +20,7 @@ public class InteractActionPickupTape : InteractAction
         var master = GameObject.Find("Master");
         inventory = master.GetComponent<Inventory>();
         
-        if (inventory.HasTape(index))
+        if (inventory.HasTape(tapeKey))
         {
             Destroy(gameObject);
         }

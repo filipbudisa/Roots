@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class InteractActionPickupDiary : InteractAction
 {
-    public int index;
+    public ExpoDiaryKey entryKey;
     private Inventory inventory;
     
     protected override void Action()
     {
-        inventory.AddDiary(index);
+        inventory.AddDiary(entryKey);
     }
 
     protected override bool IsOneTimeUse() {
@@ -20,7 +20,7 @@ public class InteractActionPickupDiary : InteractAction
         var master = GameObject.Find("Master");
         inventory = master.GetComponent<Inventory>();
         
-        if (inventory.HasDiary(index))
+        if (inventory.HasDiary(entryKey))
         {
             Destroy(gameObject);
         }

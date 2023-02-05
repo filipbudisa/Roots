@@ -52,7 +52,7 @@ public class MonologueSystem : MonoBehaviour
     {
         text.text = item.text;
 
-        var path = "Items/" + (item.text == null ? "Petar" : item.picture);
+        var path = "Items/" + (string.IsNullOrEmpty(item.picture) ? "Petar" : item.picture);
         Texture2D tex = Resources.Load<Texture2D>(path);
         image.sprite = Sprite.Create(tex, new Rect(0, 0, 20, 20), new Vector2(0.5f, 0.5f));
     }

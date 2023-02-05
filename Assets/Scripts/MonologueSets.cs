@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 public struct MonologueItem {
-    public MonologueItem(string text, string picture = "test.png") {
+    public MonologueItem(string text, string picture = null) {
         this.text = text;
         this.picture = picture;
     }

@@ -72,13 +72,6 @@ public class Inventory : MonoBehaviour
         uiExpoTapesTitle = uiExpoTapes.transform.Find("TitleText").GetComponent<TextMeshProUGUI>();
         uiExpoTapesDesc = uiExpoTapes.transform.Find("DescText").GetComponent<TextMeshProUGUI>();
         HideExpoTapes();
-
-        // TODO: REMOVE (ONLY FOR TEST)
-        AddDiary(ExpoDiaryKey.Entry3);
-        AddDiary(ExpoDiaryKey.Entry5);
-        AddTape(ExpoTapeKey.Tape2);
-        AddTape(ExpoTapeKey.Tape3);
-        AddItem(Item.Recorder);
     }
 
     // Start is called before the first frame update

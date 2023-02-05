@@ -9,8 +9,6 @@ public class InteractActionSay : InteractAction
 
     protected override void Action()
     {
-        // TODO: Kreiraj monolog sistem
-        // player.say(text)
         monologueSystem.Say(monologueKey);
     }
 

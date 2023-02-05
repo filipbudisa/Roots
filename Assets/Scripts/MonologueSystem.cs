@@ -30,6 +30,13 @@ public class MonologueSystem : MonoBehaviour
     public void Click()
     {
         if (!active) return;
+        if (currentMonolog == MonologueKey.None)
+        {
+            active = false;
+            Hide();
+            return;
+        }
+        
         var lines = MonologueSets.MonologueDic[currentMonolog];
         if (++lineIndex >= lines.Count)
         {
@@ -47,6 +54,14 @@ public class MonologueSystem : MonoBehaviour
         currentMonolog = monologueKey;
         lineIndex = 0;
         SayLine(lines[0]);
+        active = true;
+    }
+
+    public void Say(MonologueItem item)
+    {
+        Show();
+        currentMonolog = MonologueKey.None;
+        SayLine(item);
         active = true;
     }
 

@@ -17,7 +17,9 @@ public class InteractActionPuzzle : InteractAction
     [SerializeField] private GameObject puzzle;
 
     protected override void Action(){
+        var master = GameObject.Find("Master");
         puzzle.SetActive(true);
+        master.GetComponent<GlobalStateManager>().puzzleOpen = true;
     }
 
     void Awake() {

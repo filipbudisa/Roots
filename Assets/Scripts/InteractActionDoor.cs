@@ -16,7 +16,4 @@ public class InteractActionDoor : InteractAction
         sceneSwitcher = master.GetComponent<SceneSwitcher>();
     }
 
-    private void OnMouseDown() {
-        Action();
-    }
 }

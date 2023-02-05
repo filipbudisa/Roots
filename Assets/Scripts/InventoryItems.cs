@@ -17,7 +17,8 @@ public enum Item {
     PhotoFragment3,
     Recorder,
     DischargeLetter,
-    Coin
+    Coin,
+    Key
 }
 
 public static class InventoryItems
@@ -31,6 +32,7 @@ public static class InventoryItems
         { Item.Recorder, new ItemDesc("Recorder", "Recorder") },
         { Item.DischargeLetter, new ItemDesc("Discharge letter", "Discharge") },
         { Item.Coin, new ItemDesc("Sobriety coin", "Coin") },
+        { Item.Key, new ItemDesc("Key", "Key") }
     };
 
 }

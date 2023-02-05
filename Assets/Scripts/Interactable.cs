@@ -7,6 +7,7 @@ public class Interactable : MonoBehaviour
 {
     private CursorControl cursor;
     public bool deleteAfterUse = false;
+    private bool mouseInside = false;
 
     private void Awake()
     {
@@ -17,11 +18,13 @@ public class Interactable : MonoBehaviour
     void OnMouseEnter()
     {
         cursor.setHover(true);
+        mouseInside = true;
     }
 
     void OnMouseExit()
     {
         cursor.setHover(false);
+        mouseInside = false;
     }
 
     // When mouse is released over element
@@ -44,6 +47,11 @@ public class Interactable : MonoBehaviour
 
         if (deleteAfterUse)
         {
+            if (mouseInside)
+            {
+                cursor.setHover(false);
+            }
+            
             Destroy(gameObject);
         }
     }

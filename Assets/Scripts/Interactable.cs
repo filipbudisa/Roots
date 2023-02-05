@@ -6,6 +6,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     private CursorControl cursor;
+    public bool deleteAfterUse = false;
 
     private void Awake()
     {
@@ -39,6 +40,11 @@ public class Interactable : MonoBehaviour
         foreach (var action in actions)
         {
             action.Interact();
+        }
+
+        if (deleteAfterUse)
+        {
+            Destroy(gameObject);
         }
     }
 }

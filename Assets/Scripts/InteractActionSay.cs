@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class InteractActionSay : InteractAction
 {
-    public string text;
+    public MonologueKey monologueKey;
+    private MonologueSystem monologueSystem;
 
     protected override void Action()
     {
         // TODO: Kreiraj monolog sistem
         // player.say(text)
-        Debug.Log(text);
-        throw new System.NotImplementedException();
+        monologueSystem.Say(monologueKey);
+    }
+
+    private void Awake() {
+        var master = GameObject.Find("Master");
+        monologueSystem = master.GetComponent<MonologueSystem>();
     }
 
     // Start is called before the first frame update

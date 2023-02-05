@@ -1,29 +1,22 @@
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-public struct MonologueItem {
-    public MonologueItem(string text, string picture = "test.png") {
-        this.text = text;
-        this.picture = picture;
-    }
-    public string text { get; set; }
-    public string picture { get; set; }
-}
-
-public enum Monologue {
-    Monologue1,
-    Monologue2
-}
-
-public static class MonologueSystem
+public class MonologueSystem : MonoBehaviour
 {
-    public static Dictionary<Monologue, HashSet<MonologueItem>> MonologueDic = new Dictionary<Monologue, HashSet<MonologueItem>>() {
-        { Monologue.Monologue1, new HashSet<MonologueItem>() {
-            new MonologueItem("Test speech 1 - Screen 1"),
-            new MonologueItem("Test speech 1 - Screen 2")
-        }},
-        { Monologue.Monologue2, new HashSet<MonologueItem>() {
-            new MonologueItem("Test speech 2 - Screen 1"),
-            new MonologueItem("Test speech 2 - Screen 2")
-        }}
-    };
+    public void Say(MonologueKey monologueKey) {
+        
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

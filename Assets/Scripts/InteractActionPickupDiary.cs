@@ -5,16 +5,21 @@ using UnityEngine;
 public class InteractActionPickupDiary : InteractAction
 {
     public int index;
+    private Inventory inventory;
     
     protected override void Action()
     {
-        // TODO: add diary to player inventory
-        // player.Inventory.AddDiary(index)
+        inventory.AddDiary(index);
         throw new System.NotImplementedException();
     }
 
     protected override bool IsOneTimeUse() {
         return true;
+    }
+
+    void Awake() {
+        var master = GameObject.Find("Master");
+        inventory = master.GetComponent<Inventory>();
     }
 
     // Start is called before the first frame update

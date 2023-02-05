@@ -5,16 +5,20 @@ using UnityEngine;
 public class InteractActionPickup : InteractAction
 {
     public Item item;
+    private Inventory inventory;
     
     protected override void Action()
     {
-        // TODO: add item to inventory
-        // player.Inventory.AddItem(item)
-        throw new System.NotImplementedException();
+        inventory.AddItem(item);
     }
 
     protected override bool IsOneTimeUse() {
         return true;
+    }
+
+    void Awake() {
+        var master = GameObject.Find("Master");
+        inventory = master.GetComponent<Inventory>();
     }
 
     // Start is called before the first frame update

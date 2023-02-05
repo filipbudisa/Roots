@@ -5,16 +5,20 @@ using UnityEngine;
 public class InteractActionPickupTape : InteractAction
 {
     public int index;
+    private Inventory inventory;
     
     protected override void Action()
     {
-        // TODO: add tape to player inventory
-        // player.Inventory.AddTape(index)
-        throw new System.NotImplementedException();
+        inventory.AddTape(index);
     }
 
     protected override bool IsOneTimeUse() {
         return true;
+    }
+
+    void Awake() {
+        var master = GameObject.Find("Master");
+        inventory = master.GetComponent<Inventory>();
     }
 
     // Start is called before the first frame update

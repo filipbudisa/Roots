@@ -55,6 +55,9 @@ public class Inventory : MonoBehaviour
         DiaryEntryList.Remove(entryKey);
         UpdateInventoryUI();
     }
+    public bool HasAnyDiaryEntry() {
+        return DiaryEntryList.Count > 0;
+    }
 
     private void Awake() {
         var master = GameObject.Find("Master");
@@ -75,6 +78,7 @@ public class Inventory : MonoBehaviour
         AddDiary(ExpoDiaryKey.Entry5);
         AddTape(ExpoTapeKey.Tape2);
         AddTape(ExpoTapeKey.Tape3);
+        AddItem(Item.Recorder);
     }
 
     // Start is called before the first frame update

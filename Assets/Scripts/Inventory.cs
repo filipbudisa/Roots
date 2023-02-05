@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private HashSet<Item> Items;
+    private List<Item> Items;
+
+    public Inventory()
+    {
+        Items = new List<Item>();
+    }
+
     public bool HasItem(Item item) {
         return Items.Contains(item);
     }

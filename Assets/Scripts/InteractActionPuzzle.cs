@@ -12,13 +12,11 @@ public enum PuzzleKey{
 
 public class InteractActionPuzzle : InteractAction
 {
-    [SerializeField] private PuzzleKey puzzleType;
+    PuzzleKey puzzleType;
     //Drag and drop a game here 
     [SerializeField] private GameObject puzzle;
-    [SerializeField] private GameObject ui;
 
     protected override void Action(){
-        var master = GameObject.Find("Master");
         puzzle.SetActive(true);
     }
 

@@ -6,6 +6,8 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     private CursorControl cursor;
+    public bool deleteAfterUse = false;
+    private bool mouseInside = false;
 
     private void Awake()
     {
@@ -16,18 +18,20 @@ public class Interactable : MonoBehaviour
     void OnMouseEnter()
     {
         cursor.setHover(true);
+        mouseInside = true;
     }
 
     void OnMouseExit()
     {
         cursor.setHover(false);
+        mouseInside = false;
     }
 
     // When mouse is released over element
     void OnMouseUpAsButton()
     {
-        var monolog = GameObject.Find("Monolog");
-        if(monolog && monolog.activeInHierarchy) return;
+        var master = GameObject.Find("Master");
+        if(master.GetComponent<GlobalStateManager>().uiOpen()) return;
         
         var player = GameObject.Find("Player");
         player.GetComponent<Player>().interact(this);
@@ -39,6 +43,16 @@ public class Interactable : MonoBehaviour
         foreach (var action in actions)
         {
             action.Interact();
+        }
+
+        if (deleteAfterUse)
+        {
+            if (mouseInside)
+            {
+                cursor.setHover(false);
+            }
+            
+            Destroy(gameObject);
         }
     }
 }

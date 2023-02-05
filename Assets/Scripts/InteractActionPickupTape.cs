@@ -19,6 +19,11 @@ public class InteractActionPickupTape : InteractAction
     void Awake() {
         var master = GameObject.Find("Master");
         inventory = master.GetComponent<Inventory>();
+        
+        if (inventory.HasTape(index))
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Start is called before the first frame update

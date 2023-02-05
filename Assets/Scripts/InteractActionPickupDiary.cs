@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class InteractActionPickupDiary : InteractAction
 {
-    public int index;
+    public ExpoDiaryKey entryKey;
     private Inventory inventory;
     
     protected override void Action()
     {
-        inventory.AddDiary(index);
+        inventory.AddDiary(entryKey);
     }
 
     protected override bool IsOneTimeUse() {

@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using Image = UnityEngine.UI.Image;
 
 public class Inventory : MonoBehaviour
 {
     private GameObject uiTopLayer;
     private GameObject uiExpoDiary;
+    private TextMeshProUGUI uiExpoDiaryTitle;
+    private TextMeshProUGUI uiExpoDiaryDesc;
 
     private CursorControl cursor;
-    private HashSet<Item> Items;
+    private List<Item> Items = new List<Item>();
     public bool HasItem(Item item) {
         return Items.Contains(item);
     }
@@ -21,7 +27,7 @@ public class Inventory : MonoBehaviour
         UpdateInventoryUI();
     }
 
-    private HashSet<int> TapeIndexList;
+    private List<int> TapeIndexList = new List<int>();
     public bool HasTape(int index) {
         return TapeIndexList.Contains(index);
     }
@@ -34,16 +40,16 @@ public class Inventory : MonoBehaviour
         UpdateInventoryUI();
     }
 
-    private HashSet<int> DiaryIndexList;
-    public bool HasDiary(int index) {
-        return DiaryIndexList.Contains(index);
+    private List<ExpoDiaryKey> DiaryEntryList = new List<ExpoDiaryKey>();
+    public bool HasDiary(ExpoDiaryKey entryKey) {
+        return DiaryEntryList.Contains(entryKey);
     }
-    public void AddDiary(int index) {
-        DiaryIndexList.Add(index);
+    public void AddDiary(ExpoDiaryKey entryKey) {
+        DiaryEntryList.Add(entryKey);
         UpdateInventoryUI();
     }
-    public void RemoveDiary(int index) {
-        DiaryIndexList.Remove(index);
+    public void RemoveDiary(ExpoDiaryKey entryKey) {
+        DiaryEntryList.Remove(entryKey);
         UpdateInventoryUI();
     }
 
@@ -53,7 +59,12 @@ public class Inventory : MonoBehaviour
 
         uiTopLayer = GameObject.Find("TopLayer");
         uiExpoDiary = GameObject.Find("ExpoDiary");
+        uiExpoDiaryTitle = uiExpoDiary.transform.Find("TitleText").GetComponent<TextMeshProUGUI>();
+        uiExpoDiaryDesc = uiExpoDiary.transform.Find("DescText").GetComponent<TextMeshProUGUI>();
         HideExpoDiary();
+
+        // TODO: REMOVE (ONLY FOR TEST)
+        AddDiary(ExpoDiaryKey.Entry3);
     }
 
     // Start is called before the first frame update
@@ -93,9 +104,16 @@ public class Inventory : MonoBehaviour
         uiTopLayer.SetActive(true);
     }
     private void HideExpoDiary() {
+        uiExpoDiaryDesc.SetText("");
+        uiExpoDiaryTitle.SetText("");
         uiExpoDiary.SetActive(false);
     }
     private void ShowExpoDiary() {
+        DiaryEntry[] diaryEntries = uiExpoDiary.transform.GetComponentsInChildren<DiaryEntry>();
+        foreach (var diaryEntry in diaryEntries)
+        {
+            diaryEntry.gameObject.SetActive(HasDiary(diaryEntry.expoDiaryKey));
+        }
         uiExpoDiary.SetActive(true);
     }
 }

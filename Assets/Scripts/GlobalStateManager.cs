@@ -16,9 +16,5 @@ public class GlobalStateManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

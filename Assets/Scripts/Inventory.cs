@@ -65,6 +65,7 @@ public class Inventory : MonoBehaviour
 
         // TODO: REMOVE (ONLY FOR TEST)
         AddDiary(ExpoDiaryKey.Entry3);
+        AddDiary(ExpoDiaryKey.Entry5);
     }
 
     // Start is called before the first frame update
